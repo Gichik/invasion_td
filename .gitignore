@@ -38,3 +38,5 @@ game/resource/overviews/*
 
 #Github dump
 *.stackdump
+game/invasion_td/tools_asset_info.bin
+game/invasion_td/tools_thumbnail_cache.bin
