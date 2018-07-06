@@ -1,8 +1,7 @@
 -- Generated from template
-
-if CAddonTemplateGameMode == nil then
-	CAddonTemplateGameMode = class({})
-end
+require( 'work_map_logic' )
+require( 'constant_links' )
+require( 'timers' )
 
 function Precache( context )
 	--[[
@@ -16,21 +15,19 @@ end
 
 -- Create the game mode when we activate
 function Activate()
-	GameRules.AddonTemplate = CAddonTemplateGameMode()
-	GameRules.AddonTemplate:InitGameMode()
-end
 
-function CAddonTemplateGameMode:InitGameMode()
-	print( "Template addon is loaded." )
-	GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 2 )
-end
+	local MapName = GetMapName()
+	print(MapName)
 
--- Evaluate the state of the game
-function CAddonTemplateGameMode:OnThink()
-	if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-		--print( "Template addon script is running." )
-	elseif GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME then
-		return nil
+	if MapName == "work_map" then
+		print("----------------------------------------Work map Start----------------------------------------")
+		GameRules:GetGameModeEntity():SetCustomGameForceHero('npc_dota_hero_rattletrap');
+		work_map_logic:InitGameMode()
 	end
-	return 1
+
+	if MapName == "solo_map" then
+		print("----------------------------------------Solo map Start----------------------------------------")
+		--main:InitGameMode()
+	end
+
 end
