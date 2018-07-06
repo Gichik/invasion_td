@@ -80,6 +80,9 @@ function work_map_logic:OnEntityKilled(data)
     local killedEntity = EntIndexToHScript(data.entindex_killed)
 
     if killedEntity:IsCreature()  then
+        if killedEntity.respawn then
+            self:RespawnUnit(killedEntity:GetUnitName(),killedEntity.vSpawnLoc,killedEntity.modifierName, LAND_MINE_RESPAWN_TIME)
+        end
     end
 
     if killedEntity:IsRealHero()  then
@@ -92,9 +95,14 @@ function work_map_logic:SpanwMoobs()
     local point = nil
     local unit = nil
 
-    point = Entities:FindByName( nil, "spawner_1"):GetAbsOrigin()
-    unit = CreateUnitByName("npc_dota_neutral_kobold", point, true, nil, nil, DOTA_TEAM_BADGUYS )
+    point = Entities:FindByName( nil, "spawner_3"):GetAbsOrigin()
+    unit = CreateUnitByName("npc_creature_land_mine", point, true, nil, nil, DOTA_TEAM_BADGUYS )
+    unit.vSpawnLoc = unit:GetAbsOrigin()
+    unit.respawn = true
+    unit.modifierName = "modifier_land_mine_invisible"
     unit:SetForwardVector(Vector(0,-1,0))
+    unit:AddNewModifier(unit, nil, "modifier_land_mine_invisible", {})
+
 end
 
 
@@ -151,3 +159,21 @@ function work_map_logic:OnChat( data )
     end
 end
 
+
+function work_map_logic:RespawnUnit(unitName,SpawnLoc,modifierName,time)
+
+    local team = DOTA_TEAM_BADGUYS
+    local unit = nil
+
+    Timers:CreateTimer(time, function()
+        unit = CreateUnitByName(unitName, SpawnLoc, true, nil, nil, team )
+        unit.vSpawnLoc = SpawnLoc
+        unit.respawn = true
+        if modifierName then
+            unit.modifierName = modifierName
+            unit:AddNewModifier(unit, nil, modifierName, {})
+        end
+        return nil
+    end
+    )
+end

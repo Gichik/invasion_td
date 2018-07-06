@@ -1,6 +1,7 @@
 -- Generated from template
 require( 'work_map_logic' )
 require( 'constant_links' )
+require( 'modifiers_links' )
 require( 'timers' )
 
 function Precache( context )
@@ -11,6 +12,17 @@ function Precache( context )
 			PrecacheResource( "particle", "*.vpcf", context )
 			PrecacheResource( "particle_folder", "particles/folder", context )
 	]]
+
+
+	------------------------------------------------models-----------------------------------------------------
+	PrecacheResource( "model", "models/heroes/techies/fx_techiesfx_mine.vmdl", context ) --land mine
+
+	------------------------------------------------particles-----------------------------------------------------
+	PrecacheResource( "particle", "particles/units/heroes/hero_techies/techies_land_mine_explode.vpcf", context ) --land mine
+
+	------------------------------------------------sound-----------------------------------------------------
+	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_techies.vsndevts", context ) --land mine
+
 end
 
 -- Create the game mode when we activate
