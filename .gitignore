@@ -40,3 +40,6 @@ game/resource/overviews/*
 *.stackdump
 game/invasion_td/tools_asset_info.bin
 game/invasion_td/tools_thumbnail_cache.bin
+game/invasion_td/.idea/invasion_td.iml
+game/invasion_td/.idea/modules.xml
+game/invasion_td/.idea/workspace.xml
