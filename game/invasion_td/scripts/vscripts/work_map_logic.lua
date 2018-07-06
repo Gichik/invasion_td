@@ -62,7 +62,7 @@ function work_map_logic:OnNPCSpawn(data)
      
             if unit:HasAnyAvailableInventorySpace() then
                 unit:AddItemByName("item_blink")
-                --unit:AddItemByName("item_heart")
+                unit:AddItemByName("item_scarlet_stone_of_fire")
             end
 
         end
@@ -102,6 +102,14 @@ function work_map_logic:SpanwMoobs()
     unit.modifierName = "modifier_land_mine_invisible"
     unit:SetForwardVector(Vector(0,-1,0))
     unit:AddNewModifier(unit, nil, "modifier_land_mine_invisible", {})
+
+    point = Entities:FindByName( nil, "spawner_2"):GetAbsOrigin()
+    unit = CreateUnitByName("npc_creature_ore", point, true, nil, nil, DOTA_TEAM_BADGUYS )
+    unit.vSpawnLoc = unit:GetAbsOrigin()
+    unit.respawn = true
+    unit.modifierName = "modifier_red_ore"
+    unit:AddNewModifier(unit, nil, "modifier_red_ore", {})
+
 
 end
 

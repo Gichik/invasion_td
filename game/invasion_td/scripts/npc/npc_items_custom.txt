@@ -1,3 +1,37 @@
 "DOTAAbilities"
 {
+
+	"item_scarlet_stone_of_fire"
+	{
+
+		// General
+		//-------------------------------------------------------------------------------------------------------------		
+		"BaseClass"						"item_lua" 
+		"ScriptFile"					"items/item_scarlet_stone_of_fire" 
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"	
+		"AbilityTextureName"			"custom_folder/scarlet_stone_of_fire" 
+		"Model"							"models/props_gameplay/rune_haste01.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------		
+		"ItemCost"                      "100" 
+		"ItemQuality"    				"epic"			
+		"ItemAliases"					"scarlet stone of fire"
+		"ItemDroppable"					"1" 
+		"ItemPurchasable"				"0" 
+		"ItemSellable"					"1" 
+		"ItemKillable"					"1" 
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE" 
+		"ItemInitialCharges"			"1"
+		"ItemDisplayCharges" 			"1"	
+		"ItemRequiresCharges" 			"1"		
+		"ItemStackable" 				"1"
+		"ItemPermanent" 				"0"		 
+			
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"300"
+		"AbilityCastPoint"				"0.2"
+	}
+
 }

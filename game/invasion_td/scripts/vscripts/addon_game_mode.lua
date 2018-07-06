@@ -16,12 +16,18 @@ function Precache( context )
 
 	------------------------------------------------models-----------------------------------------------------
 	PrecacheResource( "model", "models/heroes/techies/fx_techiesfx_mine.vmdl", context ) --land mine
+	PrecacheResource( "model", "models/props_gameplay/crystal_ring01.vmdl", context ) --ore
+	PrecacheResource( "model", "models/props_gameplay/rune_haste01.vmdl", context ) --red crystals
+
 
 	------------------------------------------------particles-----------------------------------------------------
 	PrecacheResource( "particle", "particles/units/heroes/hero_techies/techies_land_mine_explode.vpcf", context ) --land mine
+	PrecacheResource( "particle", "particles/econ/items/alchemist/alchemist_smooth_criminal/alchemist_smooth_criminal_unstable_concoction_explosion_streak.vpcf", context ) --red ore
 
 	------------------------------------------------sound-----------------------------------------------------
 	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_techies.vsndevts", context ) --land mine
+	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_sandking.vsndevts", context ) --ore
+
 
 end
 
