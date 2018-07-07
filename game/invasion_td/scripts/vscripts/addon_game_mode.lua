@@ -1,7 +1,9 @@
 -- Generated from template
 require( 'work_map_logic' )
+require( 'solo_map_logic' )
 require( 'constant_links' )
 require( 'modifiers_links' )
+require( 'supporting_function' )
 require( 'timers' )
 
 function Precache( context )
@@ -39,13 +41,12 @@ function Activate()
 
 	if MapName == "work_map" then
 		print("----------------------------------------Work map Start----------------------------------------")
-		GameRules:GetGameModeEntity():SetCustomGameForceHero('npc_dota_hero_rattletrap');
 		work_map_logic:InitGameMode()
 	end
 
 	if MapName == "solo_map" then
 		print("----------------------------------------Solo map Start----------------------------------------")
-		--main:InitGameMode()
+		solo_map_logic:InitGameMode()
 	end
 
 end

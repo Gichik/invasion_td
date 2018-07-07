@@ -30,7 +30,7 @@ function modifier_red_ore:OnDeath(data)
 
 			EmitSoundOn("Ability.SandKing_CausticFinale", parent)
 
-			work_map_logic:CreateDrop("item_scarlet_stone_of_fire", parent:GetAbsOrigin())		
+			SupFunction:CreateDrop("item_scarlet_stone_of_fire", parent:GetAbsOrigin())		
 		end
 	end
 end
